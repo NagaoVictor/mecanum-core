@@ -1,0 +1,19 @@
+# Binarios e Obejtos (Lixo de compilacao)
+mecanumbot
+remote_tx
+*.o
+*.out
+*.exe
+*.bin
+*.elf
+
+# Pastas de IDE e Logs
+.vscode/
+.idea/
+.arduino/
+*.log
+/mnt/robot_buffer/*
+
+# Arquivos de Sistema
+.DS_Store
+Thumbs.db

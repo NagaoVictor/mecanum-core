@@ -35,18 +35,16 @@ int main() {
 	};
 	
 	printf("--- Core do Robo Ativo (PI 5) ---\n");
-	
 	while(1) {
-		float bat = battery_core(fd_i2c);
-		printf("\r[Y:%4d | X:%4d | Bat:%.2fV ", global_cmd.y, global_cmd.x, bat);
+				
+		
+		apply_mecanum(global_cmd.x, global_cmd.y, global_cmd.r);
+		
+		printf("\r[Y:%4d | X:%4d]", global_cmd.y, global_cmd.x);
 		fflush(stdout);
 		
-		if (bat > 0.5 && bat < 6.4){
-			printf("\nBateria Critica! Desligando...\n");
-			system("shutdown -h now");
-		}
 		
-		usleep(10000);
+		usleep(20000);
 
 	}
 	return 0;

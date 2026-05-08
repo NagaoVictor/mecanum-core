@@ -8,3 +8,14 @@ Mecanum-Core 制御システム　仕様書
 通信：I２C（Inter-Intergrated Circuit）　＊＊Raspberry PiとPCA9685＊＊
 
 
+
+<p align="center">
+
+&#x20; <img src="assets/demo1.mp4" width="30%">
+
+&#x20; <img src="assets/demo2.mp4" width="30%">
+
+&#x20; <img src="assets/demo3.mp4" width="30%">
+
+</p>
+

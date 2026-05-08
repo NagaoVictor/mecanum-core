@@ -13,9 +13,5 @@ Mecanum-Core 制御システム　仕様書
 
 &#x20; <img src="assets/demo1.gif" width="500">
 
-&#x20; <img src="assets/demo2.gif" width="30%">
-
-&#x20; <img src="assets/demo3.gif" width="30%">
-
 </p>
 

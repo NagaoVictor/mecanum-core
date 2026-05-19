@@ -6,6 +6,7 @@
 #include "motor_driver.h"
 #include "network_mgr.h"
 
+// To not assets that the RobotCommand is a constant. Always read the memory
 volatile RobotCommand global_cmd = {0,0,0,0};
 
 void* net_thread(void* arg) {

@@ -1,0 +1,46 @@
+I2C protocol (PCA9685)
+
+O PWM usa: 2^12 = 4096 bits
+Mas o I2C trabalha com: 8 bits por registrador.
+Por isso é necessário o uso de dois registradores de 8 bits para cada.
+
+No PCA9685, um exemplo claro é o 0x08 e 0x09 do barramento 1 e dos local 0x40.
+Caso eu queira colocar o valor 307, ele precisará de mais de um registrador de 8 bits.
+0000 0001 0011 0011
+0x00 0x01 0x03 0x03
+
+Tendo 0x33 Na parte LOW, e 0x01 na parte HIGH
+LOW = valor & 0xFF
+HIGH = (Valor >> 8)&0x0F
+
+0x00 MODE1 Controle principal 
+
+Bit:  7 6 5 4 3 2 1 0
+      | | | | | | | |
+      R - A S - - - C
+
+0x00 ALLCALL -> responder broadcast
+0x01 SUB3 -> responder SUBADR3
+0x04 SUB2 -> responder SUBADR2
+0x08 SUB1 -> responder SUBADR1
+0x10 SLEEP -> desligar oscilador
+0x20 AI -> auto incremento
+0x40 EXTCLK -> Clock externo
+0x70 RESTART -> reiniciar PWM
+
+
+0x01 MODE2 configurações das saídas
+0x02 SUBADR1 sub-endereço I2C
+0x03 SUBADR2 sub-endereço I2C
+0x04 SUBADR3 sub-endereço I2C
+0x05 ALLCALLADR endereço broadcast
+0x06-0x09 LED0_* PWM canal 0
+0x0A-0x0D LED1_* PWM canal 1
+0x0E-0x11 LED2_* PWM canal 2
+
+...
+
+0x42-0x45 LED15_* PWM canal 15
+0xFA-0xFD ALL_LED_* altera todos canais
+0xFE PRE_SCALE frequência PWM
+0xFF TESTMODE teste interno
